@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conversor a Notación Polaca Prefija</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="contenedor">
+    <h1>Notación Polaca Prefija</h1>
+    <p class="descripcion">
+      Escribe una expresión en notación infija y el programa la convertirá
+      a notación polaca prefija.
+    </p>
+
+    <div class="entrada-grupo">
+      <input
+        type="text"
+        id="entrada"
+        placeholder="Ejemplo: (a + b) * 3 - 4 / 2"
+        autocomplete="off"
+        autofocus
+      >
+      <button id="convertir">Convertir</button>
+    </div>
+
+    <p id="error" class="error" hidden></p>
+
+    <section id="resultado" class="resultado" hidden>
+      <h2>Tokens encontrados</h2>
+      <div id="lista-tokens" class="tokens"></div>
+
+      <h2>Resultado en prefija</h2>
+      <p id="salida-prefija" class="prefija"></p>
+    </section>
+  </main>
+
+  <!-- Scripts compilados desde TypeScript (npm run build) -->
+  <script src="dist/analizador.js"></script>
+  <script src="dist/main.js"></script>
+</body>
+</html>

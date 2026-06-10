@@ -1,0 +1,134 @@
+/* Estilos del conversor a notación polaca prefija */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background-color: #1e1e2e;
+  color: #e4e4ef;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.contenedor {
+  width: 100%;
+  max-width: 600px;
+  background-color: #2a2a3d;
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+h1 {
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+  color: #8ab4f8;
+}
+
+.descripcion {
+  color: #a0a0b8;
+  margin-bottom: 24px;
+  font-size: 0.95rem;
+}
+
+/* --- Entrada --- */
+
+.entrada-grupo {
+  display: flex;
+  gap: 10px;
+}
+
+#entrada {
+  flex: 1;
+  padding: 12px 14px;
+  font-size: 1rem;
+  font-family: "Consolas", monospace;
+  border: 2px solid #44445c;
+  border-radius: 8px;
+  background-color: #1e1e2e;
+  color: #e4e4ef;
+  outline: none;
+}
+
+#entrada:focus {
+  border-color: #8ab4f8;
+}
+
+#convertir {
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  background-color: #8ab4f8;
+  color: #1e1e2e;
+  cursor: pointer;
+}
+
+#convertir:hover {
+  background-color: #aecbfa;
+}
+
+/* --- Errores --- */
+
+.error {
+  margin-top: 16px;
+  padding: 12px;
+  border-radius: 8px;
+  background-color: #4a2a33;
+  color: #ff9aa8;
+  font-size: 0.95rem;
+}
+
+/* --- Resultado --- */
+
+.resultado {
+  margin-top: 24px;
+}
+
+.resultado h2 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #a0a0b8;
+  margin: 18px 0 10px;
+}
+
+.prefija {
+  padding: 16px;
+  border-radius: 8px;
+  background-color: #1e1e2e;
+  font-family: "Consolas", monospace;
+  font-size: 1.3rem;
+  color: #a5d6a7;
+  word-wrap: break-word;
+}
+
+/* --- Tokens --- */
+
+.tokens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.token {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-family: "Consolas", monospace;
+  font-size: 0.9rem;
+  cursor: default;
+}
+
+.token-numero    { background-color: #2d4a3a; color: #a5d6a7; }
+.token-variable  { background-color: #2d3a4a; color: #8ab4f8; }
+.token-operador  { background-color: #4a3a2d; color: #ffcc80; }
+.token-paren_izq,
+.token-paren_der { background-color: #3d3d52; color: #c5c5d8; }
