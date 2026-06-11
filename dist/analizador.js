@@ -172,11 +172,19 @@ function recorrerPreorden(nodo) {
         return nodo.valor; // hoja: número o variable
     }
     const partes = nodo.hijos.map(recorrerPreorden);
-    return nodo.valor + " " + partes.join(" ");
+    return nodo.valor + "(" + partes.join(",") + ")";
+}
+/** Recorre el árbol en postorden (raíz, derecha, izquierda) → notación sufija. */
+function recorrerPostorden(nodo) {
+    if (nodo.hijos.length === 0) {
+        return nodo.valor;
+    }
+    const partes = nodo.hijos.map(recorrerPostorden);
+    return "(" + partes.join(",") + ")" + nodo.valor;
 }
 /** Convierte una expresión infija a notación polaca prefija. */
-function convertirAPrefija(entrada) {
+function convertirExpresion(entrada) {
     const tokens = analizarLexico(entrada);
     const arbol = new Parser(tokens).analizar();
-    return { tokens, prefija: recorrerPreorden(arbol) };
+    return { tokens, prefija: recorrerPreorden(arbol), sufija: recorrerPostorden(arbol) };
 }

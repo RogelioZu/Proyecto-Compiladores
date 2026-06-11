@@ -7,6 +7,7 @@ const campoEntrada = document.getElementById("entrada");
 const botonConvertir = document.getElementById("convertir");
 const panelResultado = document.getElementById("resultado");
 const salidaPrefija = document.getElementById("salida-prefija");
+const salidaSubfija = document.getElementById("salida-sufija");
 const listaTokens = document.getElementById("lista-tokens");
 const mensajeError = document.getElementById("error");
 function convertir() {
@@ -20,8 +21,9 @@ function convertir() {
         return;
     }
     try {
-        const resultado = convertirAPrefija(expresion);
+        const resultado = convertirExpresion(expresion);
         salidaPrefija.textContent = resultado.prefija;
+        salidaSubfija.textContent = resultado.sufija;
         // Mostrar los tokens que encontró el análisis léxico
         for (const token of resultado.tokens) {
             const etiqueta = document.createElement("span");
