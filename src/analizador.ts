@@ -234,7 +234,7 @@ function recorrerPreorden(nodo: Nodo): string {
     return nodo.valor; // hoja: número o variable
   }
   const partes = nodo.hijos.map(recorrerPreorden);
-  return nodo.valor + " " + partes.join(" ");
+  return nodo.valor + "(" + partes.join(",") + ")";
 }
 
 // ---------------------------------------------------------------------------
