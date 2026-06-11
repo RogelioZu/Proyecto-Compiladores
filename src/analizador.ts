@@ -237,6 +237,15 @@ function recorrerPreorden(nodo: Nodo): string {
   return nodo.valor + "(" + partes.join(",") + ")";
 }
 
+/** Recorre el árbol en postorden (raíz, derecha, izquierda) → notación sufija. */
+function recorrerPostorden(nodo: Nodo): string {
+  if (nodo.hijos.length === 0) {
+    return nodo.valor; 
+  }
+  const partes = nodo.hijos.map(recorrerPostorden);
+  return "(" + partes.join(",") + ")" + nodo.valor;
+}
+
 // ---------------------------------------------------------------------------
 // Función principal que usa la interfaz
 // ---------------------------------------------------------------------------
@@ -244,11 +253,12 @@ function recorrerPreorden(nodo: Nodo): string {
 interface Resultado {
   tokens: Token[];
   prefija: string;
+  sufija: string;
 }
 
 /** Convierte una expresión infija a notación polaca prefija. */
-function convertirAPrefija(entrada: string): Resultado {
+function convertirExpresion(entrada: string): Resultado {
   const tokens = analizarLexico(entrada);
   const arbol = new Parser(tokens).analizar();
-  return { tokens, prefija: recorrerPreorden(arbol) };
+  return { tokens, prefija: recorrerPreorden(arbol), sufija: recorrerPostorden(arbol) };
 }
